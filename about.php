@@ -51,7 +51,8 @@
                     <hr>
                 </div>
                 <div class="col-md-6">
-                    <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt="">
+                    <!-- <img class="img-responsive img-border-left" src="img/slide-2.jpg" alt=""> -->
+                    <iframe width="500" height="300" src="https://www.youtube.com/embed/LkBOAvzWNfM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="col-md-6">
                     <p>The Perfect Cup launched in 2000, in the heart of California. Our mission is simple. We want to teach coffee drinkers all over the world how to make the perfect blend! Our coffee experts have a life-long passion for coffee. They are

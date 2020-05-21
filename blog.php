@@ -16,7 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/style.css">
     <!-- Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
@@ -57,7 +57,8 @@
                         <small>October 13, 2013</small>
                     </h2>
                     <p>Start your morning off with this great recipe for hot coffee with coconut oil and butter.</p>
-                    <a href="#" class="btn btn-default btn-lg">Read More</a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Read More</button>
+                    <!-- <a href="#" class="btn btn-default btn-lg">Read More</a> -->
                      <hr>
                 </div>
                 <div class="col-lg-12 text-center">
@@ -95,10 +96,10 @@
     <!--container -->
     <!--Modal-1-->
 	<div id="myModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
+		<div class="modal-dialog bg-danger">
 			<!--Modal Content-->
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss-="modal">&times;</button>
+				<button type="button" class="close" data-dismiss="modal"  >&times;</button>
 				<h4 class="modal-title">Coconut Oil Coffee</h4>
 			</div>
 			<div class="nodal-body">
@@ -111,7 +112,7 @@
 	</div>
    
     <!--Modal-2-->
-	<div id="myModal2" class="modal fade" role="dialog">
+	<div id="myModal2" class="modal fade"  role="dialog">
 		<div class="modal-dialog">
 			<!--Modal Content-->
 			<div class="modal-header">
