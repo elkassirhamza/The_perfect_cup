@@ -51,18 +51,18 @@
                     <hr>
                 </div>
                 <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="img/slide-1.jpg" alt="">
+                    <img class="img-responsive img-border img-full modify " src="img/slide-11.jpg" alt="">
                     <h2>COCONUT OIL COFFEE
                         <br>
                         <small>October 13, 2013</small>
                     </h2>
                     <p>Start your morning off with this great recipe for hot coffee with coconut oil and butter.</p>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Read More</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Read More</button>
                     <!-- <a href="#" class="btn btn-default btn-lg">Read More</a> -->
                      <hr>
                 </div>
                 <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="img/slide-2.jpg" alt="">
+                    <img class="img-responsive img-border img-full modify" src="img/slide-22.jpg" alt="">
                     <h2>IRISH COFFEE
                         <br>
                         <small>October 13, 2013</small>
@@ -72,7 +72,7 @@
                      <hr>
                 </div>
                 <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="img/slide-3.jpg" alt="">
+                    <img class="img-responsive img-border img-full" src="img/slide-33.jpg" alt="">
                     <h2>FROZEN CARAMEL LATTE
                         <br>
                         <small>October 13, 2013</small>
@@ -103,7 +103,7 @@
 				<h4 class="modal-title">Coconut Oil Coffee</h4>
 			</div>
 			<div class="nodal-body">
-				<p>Sample Text</p>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam tenetur quaerat deleniti consequuntur at, itaque soluta dicta ab modi velit tempora officia nisi explicabo incidunt amet corporis autem sunt dignissimos.Laudantium eaque dicta accusamus earum fugit debitis iure, beatae dolorem et rem quod vitae optio quibusdam. Sint illum, aliquam nam nostrum cum pariatur et? Ipsa necessitatibus officiis nihil modi dolorum.</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
