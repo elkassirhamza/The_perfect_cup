@@ -68,7 +68,8 @@
                         <small>October 13, 2013</small>
                     </h2>
                     <p>Take the edge off with a fresh hot cup of coffee make with Irish whiskey and Irish cream.</p>
-                    <a href="#" class="btn btn-default btn-lg">Read More</a>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">Read More</button>
+                    <!-- <a href="#" class="btn btn-default btn-lg">Read More</a> -->
                      <hr>
                 </div>
                 <div class="col-lg-12 text-center">
@@ -78,7 +79,8 @@
                         <small>October 13, 2013</small>
                     </h2>
                     <p>Sweetened with caramel sauce and topped with whipped cream, this will make you happy any time of the day.</p>
-                    <a href="#" class="btn btn-default btn-lg">Read More</a>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal3">Read More</button>
+                    <!-- <a href="#" class="btn btn-default btn-lg">Read More</a> -->
                     <hr>
                 </div>
                 <div class="col-lg-12 text-center">
@@ -120,7 +122,7 @@
 				<h4 class="modal-title">Irish Coffee</h4>
 			</div>
 			<div class="nodal-body">
-				<p>Sample Text</p>
+				<p>“Irish Coffee” : voici un nom pour le moins évocateur, qui désigne un cocktail typiquement irlandais. Aussi célèbre que les bières irlandaises, ce breuvage est considéré comme un digestif en Irlande, qui se sirote à la fin du repas, au restaurant ou au sein d’un bon vieil irish pub. Ses ingrédients sont simples et savoureux et font appel à du café, du whiskey, du sucre et à de la crème. Le résultat est saisissant et a le mérite d’être réconfortant !</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -137,7 +139,7 @@
 				<h4 class="modal-title">Frozen Caramel Latte</h4>
 			</div>
 			<div class="nodal-body">
-				<p>Sample Text</p>
+				<p>"This frothy, blended espresso drink will wake you up and make you happy any time of day. Sweetened with caramel sauce and topped with whipped cream, this is one delicious frozen latte."</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
