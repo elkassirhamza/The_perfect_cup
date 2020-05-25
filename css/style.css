@@ -5,3 +5,13 @@
 /* .modify {
     height: 800px;
 } */
+.title{
+    text-align: center;
+    color: white;
+}
+.regis{
+    margin: 0 auto ;
+    width: 900px;
+    color: white;
+   
+}
