@@ -26,6 +26,9 @@
                     <li>
                         <a href="contact.php">Contact</a>
                     </li>
+                    <li>
+                        <a href="register.php">register</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

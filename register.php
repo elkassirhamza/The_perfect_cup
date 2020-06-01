@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>The Perfect Cup - Blog</title>
+    <title>The Perfect Cup - Registration</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,44 +23,52 @@
     <link
         href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
         rel="stylesheet" type="text/css">
+    <script src="js/jquery.js"></script>
+    
 </head>
 
 <body>
-    <div class="form-container">
+    
+    <form role="form" id="form">
+        <h2 class="title">Registration form </h2>
 
-
-
-        <form role="form">
-            <h2 class="title">Registration form </h2>
-            <div class="row regis ">
-                <div class="form-group col-lg-6">
-                    <label>Name</label>
-                    <input type="text" id="fname" name="fname" maxlength="25" class="form-control">
-                </div>
-               
-                <div class="clearfix"></div>
-               
-                <div class="form-group col-lg-6">
-                    <label>Email Address</label>
-                    <input type="email" id="email" name="email" maxlength="25" class="form-control">
-                </div>
-                
-                <div class="form-group col-lg-6">
-                    <label>password</label>
-                    <input type="password" id="password" name="password" maxlength="25" class="form-control">
-                </div>
-                <div class="form-group col-lg-12">
-                    <label>ADRESS</label>
-                    <textarea class="form-control" id="ADRESS" name="ADRESS" maxlength="100" rows="1"></textarea>
-                </div>
-                <div class="form-group col-lg-12">
-                    <button type="submit" id="contact" class="btn btn-primary">Submit</button>
-                </div>
+        <hr>
+        <div class="row regis">
+            <div id="add_err2"></div>
+            <div class="form-group col-lg-6">
+                <label>FirstName</label>
+                <input type="text" id="fname" name="fname" maxlength="25" class="form-control">
+            </div>
+            <div class="form-group col-lg-6">
+                <label>LastName</label>
+                <input type="text" id="lname" name="lname" maxlength="25" class="form-control">
+            
             </div>
 
-        </form>
+            <div class="form-group col-lg-12">
+                <label>Email Address</label>
+                <input type="email" id="email" name="email" maxlength="30" class="form-control">
+            </div>
 
-    </div>
+            <div class="form-group col-lg-6">
+                <label>password</label>
+                <input type="password" id="password" name="password" maxlength="25" class="form-control">
+            </div>
+            <div class="form-group col-lg-6">
+                <label>Confirme password</label>
+                <input type="password" id="confirmpassword" name="confirmpassword" maxlength="25" class="form-control">
+                <span class="error error3"></span>
+            </div>
+            <div class="form-group col-lg-12">
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- </div> -->
+    <script src="js/register.js"></script>
+
 </body>
 
 </html>

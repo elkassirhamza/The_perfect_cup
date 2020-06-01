@@ -5,13 +5,32 @@
 /* .modify {
     height: 800px;
 } */
-.title{
+.title {
     text-align: center;
     color: white;
 }
-.regis{
-    margin: 0 auto ;
+
+.regis {
+    margin: 0 auto;
     width: 900px;
     color: white;
-   
+
 }
+
+.has-success {
+    color: green;
+}
+
+.row {
+    background-color: rgba(94, 94, 94, 0.8);
+}
+
+.error {
+    color: rgb(255, 4, 4);
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+/* .alert {
+    display: none;
+} */
