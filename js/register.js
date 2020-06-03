@@ -20,34 +20,34 @@ myForm.addEventListener('submit', function (e) {
 
     e.preventDefault();
     if (firstName.value == "") {
-        alert.innerHTML = `<div class="alert alert-danger">Enter your firstName</div> `;
+        alert.innerHTML = `<div class="alert alert-danger">Enter your <strong>firstName</strong></div> `;
         return;
     } else if (myRegex.test(firstName.value) == false) {
-        alert.innerHTML = `<div class="alert alert-danger">Le first name  doit comporter seulement les lettres</div> `;
+        alert.innerHTML = `<div class="alert alert-danger">Please enter a valid firstname without numbers & symboles</div> `;
         return;
     } else if (lastName.value == "") {
-        alert.innerHTML = `<div class="alert alert-danger">Enter your lastName</div> `;
+        alert.innerHTML = `<div class="alert alert-danger">Enter your <strong>lastName</strong></div> `;
         return;
     } else if (myRegex.test(lastName.value) == false) {
-        alert.innerHTML = `<div class="alert alert-danger">Le last name doit comporter seulement les lettres</div> `;
+        alert.innerHTML = `<div class="alert alert-danger">Please enter a valid lastname without numbers & symboles</div> `;
         return;
     } else if (email.value == "") {
-        alert.innerHTML = `<div class="alert alert-danger">Enter your email</div> `;
+        alert.innerHTML = `<div class="alert alert-danger">Enter your <strong>email</strong></div> `;
         return;
     } else if (regExp.test(email.value) == false) {
-        alert.innerHTML = `<div class="alert alert-danger">Please enter a valid email</div> `;
+        alert.innerHTML = `<div class="alert alert-danger">Please enter a valid <strong>email</strong></div> `;
         return;
     } else if (password.value == "") {
-        alert.innerHTML = `<div class="alert alert-danger">please enter your password</div>`;
+        alert.innerHTML = `<div class="alert alert-danger">please enter a <strong>password</strong></div>`;
         return;
     } else if (strongRegex.test(password.value) == false) {
         alert.innerHTML = `<div class="alert alert-danger">Please enter a stong password use "numbers & special caracter"</div> `;
         return;
     } else if (password2.value == "") {
-        alert.innerHTML = `<div class="alert alert-danger">please confirm your password</div>`;
+        alert.innerHTML = `<div class="alert alert-danger">please confirm your <strong>password</strong></div>`;
         return;
     } else {
-        alert.innerHTML = `<div class="alert alert-success">your registration confirmed</div>`;
+        alert.innerHTML = `<div class="alert alert-success"><strong>your registration confirmed</strong></div>`;
     }
 });
 
