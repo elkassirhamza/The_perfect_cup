@@ -29,9 +29,6 @@
                     <li>
                         <a href="register.php">register</a>
                     </li>
-                    <li>
-                        <a href="adduser.php">Login</a>
-                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

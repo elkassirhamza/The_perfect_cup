@@ -28,10 +28,15 @@
 </head>
 
 <body>
+<div class="brand">The Perfect Cup</div>
+    <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
+    <!-- Navigation -->
+    <?php include 'nav.php' ?>
 
 <?php 
 $mysqli =  mysqli_connect("localhost","root","","test_connection");
+
 // if($mysqli -> connect_errno){
 //     echo "failed to connect to mysql". $mysqli -> connect_error;
 //     exit();
@@ -44,7 +49,8 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    
+    $check_query = "SELECT * FROM user WHERE email = '$email'";
+    $check_result = mysqli_query($mysqli,$check_query);
      
     if (strlen($fname)<3){
 
@@ -57,6 +63,10 @@ if (isset($_POST['submit'])) {
     }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
 
         $msg = "<div class='alert alert-danger'>Please enter a valid email</div>";
+
+    }else if (mysqli_num_rows($check_result) > 0) {
+
+        $msg = "<div class='alert alert-danger'>your email already exists, please <a href='login.php'>login</a></div>";
 
     }else if (!preg_match("#.*^(?=.{6,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$#", $password )){
 
@@ -74,44 +84,53 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-    <form role="form" id="form" action="register.php" method="POST">
-        <h2 class="title">Registration form </h2>
+<div class="container">
+    <div class="row ">
+        <div class="box ">
+            <div class="row regis">
+                <form role="form" id="form" action="register.php" method="POST">
+                    <h2 class="title">Registration form </h2>
 
-        <hr>
-        <div class="row regis">
-            <div id="add_err2"><?php echo $msg ?></div>
-            <div class="form-group col-lg-6">
-                <label>FirstName</label>
-                <input type="text" id="fname" name="fname" maxlength="25" class="form-control">
-            </div>
-            <div class="form-group col-lg-6">
-                <label>LastName</label>
-                <input type="text" id="lname" name="lname" maxlength="25" class="form-control">
-            
-            </div>
+                    <hr>
+                    
+                        <div id="add_err2"><?php echo $msg ?></div>
+                        <div class="form-group col-lg-6">
+                            <label>FirstName</label>
+                            <input type="text" id="fname" name="fname" maxlength="25" class="form-control">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>LastName</label>
+                            <input type="text" id="lname" name="lname" maxlength="25" class="form-control">
+                        
+                        </div>
 
-            <div class="form-group col-lg-12">
-                <label>Email Address</label>
-                <input type="email" id="email" name="email" maxlength="30" class="form-control">
-            </div>
+                        <div class="form-group col-lg-12">
+                            <label>Email Address</label>
+                            <input type="email" id="email" name="email" maxlength="30" class="form-control">
+                        </div>
 
-            <div class="form-group col-lg-6">
-                <label>password</label>
-                <input type="password" id="password" name="password" maxlength="25" class="form-control">
-            </div>
-            <div class="form-group col-lg-6">
-                <label>Confirme password</label>
-                <input type="password" id="confirmpassword" name="confirmpassword" maxlength="25" class="form-control">
-                <span class="error error3"></span>
-            </div>
-            <div class="form-group col-lg-12">
-                <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group col-lg-6">
+                            <label>password</label>
+                            <input type="password" id="password" name="password" maxlength="25" class="form-control">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <label>Confirme password</label>
+                            <input type="password" id="confirmpassword" name="confirmpassword" maxlength="25" class="form-control">
+                            <span class="error error3"></span>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <button type="submit" name="submit" id="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
-
-    </form>
-
+    </div>
+</div>
     <!-- </div> -->
+   
+   
     <!-- <script src="js/register.js"></script> -->
 
 </body>

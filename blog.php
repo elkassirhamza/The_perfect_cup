@@ -1,3 +1,13 @@
+<?php ob_start(); ?>
+<?php include "db.php";?>
+<?php
+session_start();
+if (isset($_SESSION['id'])) {
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -165,3 +175,11 @@
 </body>
 
 </html>
+<?php
+
+}
+else {
+    header("location:login.php");
+}
+
+?>

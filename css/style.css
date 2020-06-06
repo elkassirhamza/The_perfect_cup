@@ -7,13 +7,13 @@
 } */
 .title {
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .regis {
     margin: 0 auto;
     width: 900px;
-    color: white;
+    color: gray;
 
 }
 
@@ -22,7 +22,8 @@
 }
 
 .row {
-    background-color: rgba(94, 94, 94, 0.8);
+    /* background-color: rgba(94, 94, 94, 0.8); */
+    /* margin-bottom: 3em; */
 }
 
 .error {
