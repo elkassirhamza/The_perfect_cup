@@ -71,7 +71,7 @@ if (isset($_POST['login'])) {
 
             header('Location: blog.php');
         } else{
-            $msg =  "<div class='alert alert-danger'>your password in incorrect</div>";
+            $msg =  "<div class='alert alert-danger'>password invalid</div>";
         }
     }
 }

@@ -47,8 +47,6 @@ if (isset($_SESSION['id'])) {
 
     <!-- Navigation -->
     <?php require 'nav.php'; ?>
-
-
     <div class="container">
 
         <div class="row">
@@ -56,7 +54,7 @@ if (isset($_SESSION['id'])) {
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">The Perfect Cup
-                        <strong>blog</strong>
+                        <strong>blog</strong>&nbsp &nbsp &nbsp  <a id="logout" href="logout.php">logout</a>
                     </h2>
                     <hr>
                 </div>
@@ -161,7 +159,7 @@ if (isset($_SESSION['id'])) {
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <p>Copyright &copy; The Perfect Cup 2019</p>
-                </div>
+                </div>  
             </div>
         </div>
     </footer>
