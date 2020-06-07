@@ -38,7 +38,68 @@
 
     <!-- Navigation -->
     <?php require 'nav.php'; ?>
+    <?php
+        
 
+        $msg = "";
+        if (isset($_POST['contact'])) {
+            $fname = $_POST['fname'];
+            $email = $_POST['email'];
+            $message = $_POST['message'];
+            $headers = "From :". $email;
+            $content = "This email from : ".$fname."<br>".$message;
+
+            if (strlen($fname)<2){
+
+                $msg = "<div class='alert alert-danger'>Entaer a valid name</div>";
+    
+            }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+
+                $msg = "<div class='alert alert-danger'>Enter a valid email</div>";
+    
+            }else if (strlen($message)<5 ){
+
+                $msg = "<div class='alert alert-danger'>your message length must be more than 5 characters</div>";
+    
+            }else{
+
+                require 'PHPMailer/PHPMailerAutoload.php';
+
+                    $mail = new PHPMailer;
+
+                    //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+                    $mail->isSMTP();                                      // Set mailer to use SMTP
+                    $mail->Host = 'smtp.gmail.com;';  // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                    $mail->Username = 'phpmailer901@gmail.com';                 // SMTP username
+                    $mail->Password = '123456A@';                           // SMTP password
+                    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = 587;                                    // TCP port to connect to
+
+                    $mail->setFrom($email);
+                    $mail->addAddress('phpmailer901@gmail.com');     // Add a recipient
+                 
+
+                    
+                    $mail->isHTML(true);                                  // Set email format to HTML
+                    $mail->Subject = 'Test PHPMailer';
+                    $mail->Body    = 'transmitter : <b>' .$fname. '</b>' .'<br>'.$message;;
+                   
+
+                    if(!$mail->send()) {
+                        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+
+                    } else {
+                        $msg = "<div class='alert alert-success'>Message has been sent</div>";
+                    }
+            }
+
+            
+        }
+    
+    
+    ?>
     <div class="container">
 
         <div class="row">
@@ -78,8 +139,8 @@
                         <strong>form</strong>
                     </h2>
                     <hr>
-                    <div id="add_err2"></div>
-                    <form role="form">
+                    <div id="add_err2"><?php echo $msg ?></div>
+                    <form role="form" action="contact.php" method="POST">
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label>Name</label>
@@ -95,7 +156,7 @@
                                 <textarea class="form-control" id="message" name="message" maxlength="100" rows="6"></textarea>
                             </div>
                             <div class="form-group col-lg-12">
-                                <button type="submit" id="contact" class="btn btn-default">Submit</button>
+                                <button type="submit" id="contact" name="contact" class="btn btn-default">Submit</button>
                             </div>
                         </div>
                     </form>
