@@ -1,3 +1,64 @@
+<?php
+        
+
+        $msg = "";
+        if (isset($_POST['contact'])) {
+            $fname = $_POST['fname'];
+            $email = $_POST['email'];
+            $message = $_POST['message'];
+
+            if (strlen($fname)<3){
+
+                $msg = "<div class='alert alert-danger'>Entaer a valid name</div>";
+    
+            }else if (filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+
+                $msg = "<div class='alert alert-danger'>Enter a valid email</div>";
+    
+            }else if (strlen($message)<10 ){
+
+                $msg = "<div class='alert alert-danger'>your message length must be more than 10 characters</div>";
+    
+            }else{
+
+                require 'PHPMailer/PHPMailerAutoload.php';
+
+                    $mail = new PHPMailer;
+
+                    //Server settings
+                    $mail->isSMTP();                                      // Set mailer to use SMTP
+                    $mail->Host = 'smtp.gmail.com;';  // Specify main and backup SMTP servers
+                    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                    $mail->Username = 'phpmailer901@gmail.com';                 // SMTP username
+                    $mail->Password = '123456A@';                           // SMTP password
+                    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+                    $mail->Port = 587;                                    // TCP port to connect to
+                  
+                  
+                    //Recipients
+                    $mail->setFrom($email);
+                    $mail->addAddress('phpmailer901@gmail.com');     // Add a recipient
+                 
+
+                    // Content
+                    $mail->isHTML(true);                                  // Set email format to HTML
+                    $mail->Subject = 'Test PHPMailer';
+                    $mail->Body    = 'transmitter : <b>' .$fname. '</b>' .'<br>'.$message;
+                   
+
+                    if(!$mail->send()) {
+                        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+
+                    } else {
+                        $msg = "<div class='alert alert-success'>Message has been sent</div>";
+                    }
+            }
+
+            
+        }
+    
+    
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,68 +99,6 @@
 
     <!-- Navigation -->
     <?php require 'nav.php'; ?>
-    <?php
-        
-
-        $msg = "";
-        if (isset($_POST['contact'])) {
-            $fname = $_POST['fname'];
-            $email = $_POST['email'];
-            $message = $_POST['message'];
-            $headers = "From :". $email;
-            $content = "This email from : ".$fname."<br>".$message;
-
-            if (strlen($fname)<2){
-
-                $msg = "<div class='alert alert-danger'>Entaer a valid name</div>";
-    
-            }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-
-                $msg = "<div class='alert alert-danger'>Enter a valid email</div>";
-    
-            }else if (strlen($message)<5 ){
-
-                $msg = "<div class='alert alert-danger'>your message length must be more than 5 characters</div>";
-    
-            }else{
-
-                require 'PHPMailer/PHPMailerAutoload.php';
-
-                    $mail = new PHPMailer;
-
-                    //$mail->SMTPDebug = 3;                               // Enable verbose debug output
-
-                    $mail->isSMTP();                                      // Set mailer to use SMTP
-                    $mail->Host = 'smtp.gmail.com;';  // Specify main and backup SMTP servers
-                    $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                    $mail->Username = 'phpmailer901@gmail.com';                 // SMTP username
-                    $mail->Password = '123456A@';                           // SMTP password
-                    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-                    $mail->Port = 587;                                    // TCP port to connect to
-
-                    $mail->setFrom($email);
-                    $mail->addAddress('phpmailer901@gmail.com');     // Add a recipient
-                 
-
-                    
-                    $mail->isHTML(true);                                  // Set email format to HTML
-                    $mail->Subject = 'Test PHPMailer';
-                    $mail->Body    = 'transmitter : <b>' .$fname. '</b>' .'<br>'.$message;;
-                   
-
-                    if(!$mail->send()) {
-                        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-
-                    } else {
-                        $msg = "<div class='alert alert-success'>Message has been sent</div>";
-                    }
-            }
-
-            
-        }
-    
-    
-    ?>
     <div class="container">
 
         <div class="row">
