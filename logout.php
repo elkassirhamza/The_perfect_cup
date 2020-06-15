@@ -1,10 +1,7 @@
 
 <?php session_start() ?>
 
-<?php 
-    $_SESSION['id'] = null;
-    $_SESSION['fname'] = null;
-    $_SESSION['lname'] = null;
-
+<?php  
+    session_destroy();
     header('Location: login.php');
 ?>

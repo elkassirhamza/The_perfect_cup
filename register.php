@@ -35,12 +35,9 @@
     <?php include 'nav.php' ?>
 
 <?php 
-$mysqli =  mysqli_connect("localhost","root","","test_connection");
+$mysqli =  mysqli_connect("localhost","root","","Perfect_cup1");
 
-// if($mysqli -> connect_errno){
-//     echo "failed to connect to mysql". $mysqli -> connect_error;
-//     exit();
-// }
+
 $msg="";
 
 if (isset($_POST['submit'])) {
@@ -49,7 +46,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $check_query = "SELECT * FROM user WHERE email = '$email'";
+    $check_query = "SELECT * FROM users WHERE email = '$email'";
     $check_result = mysqli_query($mysqli,$check_query);
      
     if (strlen($fname)<3){
@@ -74,7 +71,7 @@ if (isset($_POST['submit'])) {
 
     }else{
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $requet = "INSERT INTO user(fname,lname,email,password) VALUES ('{$fname}','{$lname}','{$email}','{$password}')";
+        $requet = "INSERT INTO users(fname,lname,email,password) VALUES ('{$fname}','{$lname}','{$email}','{$password}')";
         $send_query = mysqli_query($mysqli,$requet);
         if (!$send_query) {
                 die("QUERY FAILED" . mysqli_error($mysqli));

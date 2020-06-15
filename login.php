@@ -39,14 +39,14 @@
     $msg = "";
 if (isset($_POST['login'])) {
 
-    $mysqli =  mysqli_connect("localhost","root","","test_connection");
+    $mysqli =  mysqli_connect("localhost","root","","Perfect_cup1");
     $email = $_POST['email'];
     $password = $_POST['password'];
 
     $email = mysqli_real_escape_string($mysqli,$email);
     $password = mysqli_real_escape_string($mysqli,$password);
 
-    $query = "SELECT * FROM user WHERE email = '{$email}'";
+    $query = "SELECT * FROM users WHERE email = '{$email}'";
     $login_query = mysqli_query($mysqli,$query);
 
     if (!$login_query) {
