@@ -19,8 +19,32 @@
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Dashboard</span></a>
 </li>
+<li class="nav-item active">
+  <a class="nav-link" href="../blog.php">
+  <i class="fab fa-blogger-b"></i>
+      <span>Blog</span></a>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="product.php">
+<i class="fab fa-product-hunt"></i>
+      <span>Les produits</span></a>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="ajouter_product.php">
+<i class="fas fa-plus-circle"></i>
+      <span>ajouter produits</span></a>
+</li>
+<li class="nav-item active">
+<a class="nav-link" href="panier.php">
+<i class="fas fa-cart-plus"></i>
+      <span>Panier</span></a>
+</li>
 
-<li class="nav-item">
+
+
+
+
+<!-- <li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
     <i class="fas fa-fw fa-folder"></i>
     <span>Pages</span>
@@ -30,6 +54,7 @@
       <h6 class="collapse-header">Login Screens:</h6>
       <a class="collapse-item" href="product.php">Les produits</a>
       <a class="collapse-item" href="ajouter_product.php">ajouter produits</a>
+</li> -->
 <!-- Divider -->
 <hr class="sidebar-divider">
 

@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/fav.png">
 
     <!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet">

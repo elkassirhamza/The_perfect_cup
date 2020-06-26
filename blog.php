@@ -23,6 +23,7 @@ if (isset($_SESSION['id'])) {
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/fav.png">
 
     <!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet">
@@ -38,6 +39,12 @@ if (isset($_SESSION['id'])) {
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
+<style>
+img{
+    width:100px
+}
+</style>
 </head>
 
 <body>
@@ -99,104 +106,63 @@ if (isset($_SESSION['id'])) {
                     </h2>
                     <hr>
                 </div>
+        <?php 
+                            $query = "SELECT * FROM produits";
+                            $load_products_query = mysqli_query($mysqli,$query);
 
+                            if (!$load_products_query) {
+                                die("QUERY FAILED". mysqli_error($mysqli));
+                            }
+
+                            while ($row = mysqli_fetch_array($load_products_query)) {
+                                $product_id = $row['product_id'];
+                                $product_title = $row['product_title'];
+                                $product_image = $row['product_image'];
+                                $product_desc = $row['product_desc'];
+                                $product_info = $row['product_info'];
+                                $product_date = $row['product_date'];
+
+        ?>
+                        
+                <div class="col-lg-12 text-center">
+                    <img class="img-responsive img-border img-full" src="img/<?php echo $product_image ?>" alt="<?php echo $product_image ?>">
+                    <h2><?php echo $product_title ?>
+                        <br>
+                        <small><?php echo $product_date ?></small>
+                    </h2>
+                    <p><?php echo $product_desc ?>.</p>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?php echo $product_id ?>">Read More</button>
+                    <a href = "admin/panier.php?item=<?php echo $product_id ?>" class="btn btn-danger btn-lg" data-dismiss="modal">Add to panier</a>
+                     <hr>
+                </div>
+                 <!--Modal-1-->
+                    <div id="myModal<?php echo $product_id ?>" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!--Modal Content-->
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss-="modal">&times;</button>
+                                <h4 class="modal-title"><?php echo $product_title ?></h4>
+                            </div>
+                            <div class="modal-body">
+                                <p><?php echo $product_info ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+        <?php
+          }
+        ?>
+                                
                 
-                <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full modify " src="img/slide-11.jpg" alt="">
-                    <h2>COCONUT OIL COFFEE
-                        <br>
-                        <small>October 13, 2013</small>
-                    </h2>
-                    <p>Start your morning off with this great recipe for hot coffee with coconut oil and butter.</p>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Read More</button>
-                    <!-- <a href="#" class="btn btn-default btn-lg">Read More</a> -->
-                     <hr>
-                </div>
-                <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full modify" src="img/slide-22.jpg" alt="">
-                    <h2>IRISH COFFEE
-                        <br>
-                        <small>October 13, 2013</small>
-                    </h2>
-                    <p>Take the edge off with a fresh hot cup of coffee make with Irish whiskey and Irish cream.</p>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">Read More</button>
-                    <!-- <a href="#" class="btn btn-default btn-lg">Read More</a> -->
-                     <hr>
-                </div>
-                <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="img/slide-33.jpg" alt="">
-                    <h2>FROZEN CARAMEL LATTE
-                        <br>
-                        <small>October 13, 2013</small>
-                    </h2>
-                    <p>Sweetened with caramel sauce and topped with whipped cream, this will make you happy any time of the day.</p>
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal3">Read More</button>
-                    <!-- <a href="#" class="btn btn-default btn-lg">Read More</a> -->
-                    <hr>
-                </div>
-                <div class="col-lg-12 text-center">
-                    <ul class="pager">
-                        <li class="previous"><a href="#">&larr; Older</a>
-                        </li>
-                        <li class="next"><a href="#">Newer &rarr;</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+                
 
     </div>
-    <!--container -->
-    <!--Modal-1-->
-	<div id="myModal" class="modal fade" role="dialog">
-		<div class="modal-dialog bg-danger">
-			<!--Modal Content-->
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"  >&times;</button>
-				<h4 class="modal-title">Coconut Oil Coffee</h4>
-			</div>
-			<div class="nodal-body">
-				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam tenetur quaerat deleniti consequuntur at, itaque soluta dicta ab modi velit tempora officia nisi explicabo incidunt amet corporis autem sunt dignissimos.Laudantium eaque dicta accusamus earum fugit debitis iure, beatae dolorem et rem quod vitae optio quibusdam. Sint illum, aliquam nam nostrum cum pariatur et? Ipsa necessitatibus officiis nihil modi dolorum.</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
-   
-    <!--Modal-2-->
-	<div id="myModal2" class="modal fade"  role="dialog">
-		<div class="modal-dialog">
-			<!--Modal Content-->
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss-="modal">&times;</button>
-				<h4 class="modal-title">Irish Coffee</h4>
-			</div>
-			<div class="nodal-body">
-				<p>“Irish Coffee” : voici un nom pour le moins évocateur, qui désigne un cocktail typiquement irlandais. Aussi célèbre que les bières irlandaises, ce breuvage est considéré comme un digestif en Irlande, qui se sirote à la fin du repas, au restaurant ou au sein d’un bon vieil irish pub. Ses ingrédients sont simples et savoureux et font appel à du café, du whiskey, du sucre et à de la crème. Le résultat est saisissant et a le mérite d’être réconfortant !</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
-   
-    <!--Modal-3-->
-	<div id="myModal3" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-			<!--Modal Content-->
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss-="modal">&times;</button>
-				<h4 class="modal-title">Frozen Caramel Latte</h4>
-			</div>
-			<div class="nodal-body">
-				<p>"This frothy, blended espresso drink will wake you up and make you happy any time of day. Sweetened with caramel sauce and topped with whipped cream, this is one delicious frozen latte."</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
+  >
     <footer>
         <div class="container">
             <div class="row">

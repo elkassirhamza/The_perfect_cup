@@ -1,2 +1,3 @@
-<? 
-$mysqli =  mysqli_connect("localhost","root","","test_connection");
+<?php 
+$mysqli =  mysqli_connect("localhost","root","","perfect_cup1");
+?>
