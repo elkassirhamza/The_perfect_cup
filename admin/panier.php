@@ -5,58 +5,57 @@
 <?php include "connect.php" ?>
 
 <?php 
-    //getting the session id
     if (isset($_SESSION['id'])) {
+
         $client_id = $_SESSION['id'];
+
     }
-    //getting the item id
     if (isset($_GET['item'])) {
+
         $item_id = $_GET['item'];
-        //getting all items from panier table
-    $panier_query = "SELECT * FROM panier WHERE item_id = $item_id AND client_id = $client_id";
-    $panier_search_query = mysqli_query($connection,$panier_query);
-    if (!$panier_search_query) {
-        die("QUERY FAILED" . mysqli_error($connection));
-    }
-    while ($row = mysqli_fetch_array($panier_search_query)) {
-        $item_title = $row['item_title'];
-        $item_image = $row['item_image'];
-        $item_price = $row['item_price'];
-        $item_quantity = $row['item_quantity'];
-    }
-    $row_count = mysqli_num_rows($panier_search_query);
+        $panier_query = "SELECT * FROM panier WHERE item_id = $item_id AND client_id = $client_id";
+        $panier_search_query = mysqli_query($connection,$panier_query);
+    
+            if (!$panier_search_query) {
+                die("QUERY FAILED" . mysqli_error($connection));
+            }
+            while ($row = mysqli_fetch_array($panier_search_query)) {
+                $item_title = $row['item_title'];
+                $item_image = $row['item_image'];
+                $item_price = $row['item_price'];
+                $item_quantity = $row['item_quantity'];
+            }
+        $row_count = mysqli_num_rows($panier_search_query);
 
-    if($row_count > 0){
-        $update_query = "UPDATE panier SET item_quantity = item_quantity+1 WHERE item_id = $item_id AND client_id = $client_id";
-        $update_item_query = mysqli_query($connection,$update_query);
-        header('Location: panier.php');
+        if($row_count > 0){
+            $update_query = "UPDATE panier SET item_quantity = item_quantity+1 WHERE item_id = $item_id AND client_id = $client_id";
+            $update_item_query = mysqli_query($connection,$update_query);
+            header('Location: panier.php');
 
-    }else{
-         //getting the item infos from products table
-        $item_query = "SELECT * FROM produits WHERE product_id = $item_id";
-        $item_search_query = mysqli_query($connection,$item_query);
+        }else{
+            $item_query = "SELECT * FROM produits WHERE product_id = $item_id";
+            $item_search_query = mysqli_query($connection,$item_query);
 
-        while ($row = mysqli_fetch_array($item_search_query)) {
-            $item_title = $row['product_title'];
-            $item_image = $row['product_image'];
-            $item_price = $row['product_price'];
-            
+            while ($row = mysqli_fetch_array($item_search_query)) {
+                $item_title = $row['product_title'];
+                $item_image = $row['product_image'];
+                $item_price = $row['product_price'];
+                
+            }
+
+            if (!$item_search_query) {
+                die("QUERY FAILED" . mysqli_error($connection));
+            }
+
+            $add_query = "INSERT INTO panier(client_id,item_id,item_title,item_image,item_price) VALUES ($client_id,$item_id,'$item_title','$item_image',$item_price)";
+            $add_to_panier_query = mysqli_query($connection,$add_query);
+
+            if (!$add_to_panier_query) {
+                die("QUERY FAILED" . mysqli_error($connection));
+            }
+
+            header('Location: panier.php');
         }
-
-        if (!$item_search_query) {
-            die("QUERY FAILED" . mysqli_error($connection));
-        }
-
-         //adding the item to panier if it doesn't already exist
-        $add_query = "INSERT INTO panier(client_id,item_id,item_title,item_image,item_price) VALUES ($client_id,$item_id,'$item_title','$item_image',$item_price)";
-        $add_to_panier_query = mysqli_query($connection,$add_query);
-
-        if (!$add_to_panier_query) {
-            die("QUERY FAILED" . mysqli_error($connection));
-        }
-
-        header('Location: panier.php');
-    }
     }
         
 
@@ -135,7 +134,6 @@
 </form>
 
 </div>
-<!-- /.container-fluid -->
 
 
 
